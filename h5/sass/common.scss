@@ -1,0 +1,36 @@
+@function px2rem($px,$base-font-size:75px){
+  @if(unitless($px)){
+    @warn "Assuming #{$px} to be in pixels,attempting to convert it into pixels for you";
+    @return px2rem($px+0px);
+  }
+  @else if(unit($px)==rem){
+    @return $px;
+  }
+  @return ($px/$base-font-size) * 1rem;
+}
+
+@mixin prefix($property,$value){
+  -webkit-#{$property}:$value;
+  -ms-#{$property}:$value;
+  #{$property}:$value;
+}
+
+@mixin auto-flex{
+  display:-webkit-box; /* Chrome, WebKit */
+  display: -moz-box; /* Firefox */
+  display: -ms-flexbox; /* IE10 +*/
+  display: -webkit-flex; /* Safari */
+  display: flex;
+}
+
+@mixin font-dpr($font-size){
+  font-size: $font-size;
+
+  [data-dpr="2"] & {
+    font-size: $font-size * 2;
+  }
+
+  [data-dpr="3"] & {
+    font-size: $font-size * 3;
+  }
+}
