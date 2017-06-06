@@ -1,3 +1,16 @@
+var Thecontext={
+    type:'FUNCTION',
+    name:'myFunc',
+    params:[],
+    body:ScriptObject
+};
+ScriptObject={
+    type:'SCRIPT',
+    varDecls:[],
+    funDecls:[],
+    source:'...'
+};
+
 /**
  * @method 二分查找  recursive
  *
